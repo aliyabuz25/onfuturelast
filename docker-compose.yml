@@ -1,6 +1,5 @@
 services:
-  onfuture-web:
-    build: .
+  onfuture-app:
     image: onfuture-web:latest
     restart: unless-stopped
     environment:
@@ -13,9 +12,9 @@ services:
     labels:
       - 'traefik.enable=true'
       - 'traefik.docker.network=edge'
-      - 'traefik.http.routers.onfuture-web.rule=Host(`onfuture.az`) || Host(`www.onfuture.az`)'
-      - 'traefik.http.routers.onfuture-web.entrypoints=web'
-      - 'traefik.http.services.onfuture-web.loadbalancer.server.port=6985'
+      - 'traefik.http.routers.onfuture-app.rule=(Host(`onfuture.az`) || Host(`www.onfuture.az`))'
+      - 'traefik.http.routers.onfuture-app.entrypoints=web'
+      - 'traefik.http.services.onfuture-app.loadbalancer.server.port=6985'
 
 networks:
   edge:

@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&family=Poppins:wght@400&family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --Font-Family-Headline: 'DM Sans', sans-serif;
+    --Font-Family-Body: 'Poppins', sans-serif;
+    --Font-Family-Button: 'Poppins', sans-serif;
+    --Font-Family-Caption: 'Poppins', sans-serif;
+}
 
 html,
 body {
@@ -6,6 +13,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -173,8 +181,11 @@ body>div[id$="-container"]:not(#hero-container) {
 
 @media (min-width: 992px) {
     .navbar .navbar-collapse {
-        margin-left: 0;
+        flex-grow: 1;
+        display: flex !important;
         justify-content: center;
+        /* This centers the nav items between brand and actions */
+        width: 100%;
     }
 }
 
@@ -340,7 +351,8 @@ body>div[id$="-container"]:not(#hero-container) {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    margin-right: 87px;
+    margin-right: clamp(24px, 5vw, 80px);
+    /* Restored margin with responsiveness */
     transition: transform 0.25s ease, filter 0.25s ease;
     transform: scale(0.84);
 }
@@ -486,10 +498,12 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .hero-nav {
     display: flex;
-    width: min(1440px, calc(100% - 160px));
-    padding: 0 80px;
-    align-items: flex-start;
-    gap: 87px;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 clamp(20px, 5vw, 80px);
+    /* Responsive padding for 'dibdə' look */
+    align-items: center;
+    /* Changed from flex-start to center */
     color: #dfe2ff;
     font-family: var(--Font-Family-Headline, "DM Sans");
     margin: 44px auto 82px;
@@ -511,11 +525,13 @@ body>div[id$="-container"]:not(#hero-container) {
 }
 
 .hero-nav-actions {
-    margin-left: 0;
+    margin-left: auto;
+    /* Push actions to the far right */
     display: flex;
     align-items: center;
     gap: 16px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    /* Prevent wrapping in desktop view */
     flex-direction: row;
     flex-shrink: 0;
 }
@@ -540,17 +556,22 @@ body>div[id$="-container"]:not(#hero-container) {
 .hero-nav .navbar-nav {
     display: inline-flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: clamp(12px, 2vw, 24px);
+    justify-content: center;
+    /* Center links in the middle */
+    gap: clamp(8px, 1.5vw, 24px);
+    /* More responsive gap */
     width: 100%;
     max-width: 717px;
     min-height: 48px;
-    flex-shrink: 0;
-    flex-wrap: wrap;
+    flex-shrink: 1;
+    /* Allow to shrink if needed */
+    flex-wrap: nowrap;
+    /* Prevent wrapping in desktop view to avoid 'slipping' */
 }
 
 .hero-nav .navbar-nav .nav-item {
-    flex: 1 0 140px;
+    flex: 0 1 auto;
+    /* Changed from 1 0 140px for better fit */
 }
 
 .hero-nav .navbar-nav .nav-link {
@@ -2081,8 +2102,8 @@ body>div[id$="-container"]:not(#hero-container) {
 }
 
 .services-badge {
-    width: 77px;
-    padding: 4px 12px 4px 8px;
+    width: auto;
+    padding: 4px 12px;
     background: var(--Primary-Color-50, #F5F5FC);
     border-radius: 24px;
     display: inline-flex;
@@ -2127,7 +2148,7 @@ body>div[id$="-container"]:not(#hero-container) {
     align-self: stretch;
     padding: 44px 80px;
     background: var(--Neutral-Color-50, #FFF);
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -2143,8 +2164,8 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .service-card {
     width: 100%;
-    height: 482px;
-    padding: 20px 24px;
+    height: 440px;
+    padding: 24px;
     position: relative;
     background: var(--Neutral-Color-50, #FFF);
     box-shadow: 0 20px 24px -12px rgba(166, 166, 166, 0.08), 0 8px 8px -12px rgba(166, 166, 166, 0.03);
@@ -2152,9 +2173,8 @@ body>div[id$="-container"]:not(#hero-container) {
     border: 1px solid var(--Neutral-Color-200, #DDD);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
-    flex: 1 0 0;
     transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
@@ -2324,11 +2344,14 @@ body>div[id$="-container"]:not(#hero-container) {
     }
 
     .hero-nav {
-        padding: 24px 20px 40px;
-        margin: 0 auto 40px;
+        padding: 20px 16px;
+        /* Tighter padding for mobile */
+        margin: 0 auto 20px;
         width: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        /* Vertical alignment */
     }
 
     .hero-nav .navbar-toggler {
@@ -2430,6 +2453,16 @@ body>div[id$="-container"]:not(#hero-container) {
 
     .hero-nav .dropdown-toggle .dropdown-arrow-icon {
         filter: invert(1) !important;
+        width: 12px;
+        /* Smaller icon */
+        height: 12px;
+    }
+
+    .navbar-brand {
+        margin-right: 0 !important;
+        transform: scale(0.75);
+        /* Smaller logo on mobile */
+        transform-origin: left center;
     }
 
     .hero-nav .navbar-toggler {
@@ -2506,8 +2539,16 @@ body>div[id$="-container"]:not(#hero-container) {
         line-height: 44px;
     }
 
+    .services-title-row {
+        gap: 16px;
+        justify-content: center;
+        text-align: center;
+    }
+
     .services-grid-inner {
         grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        /* Center items in the grid */
     }
 
     .study-title,
@@ -2661,16 +2702,26 @@ body>div[id$="-container"]:not(#hero-container) {
     .results-section,
     .services-section,
     .services-grid,
+    /* Added this */
     .study-section,
     .visa-section,
     .tech-courses,
     .faq-section,
     .scholarship {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
+        padding: 40px 16px !important;
+        margin-top: 40px !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         width: 100% !important;
+    }
+
+    .hero-actions {
+        top: 0;
+        margin-top: 32px;
+    }
+
+    .hero-cta {
+        margin: 0 auto;
     }
 }
 

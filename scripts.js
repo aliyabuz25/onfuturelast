@@ -92,7 +92,11 @@ function initPage() {
       const key = element.dataset.i18nKey;
       const translation = dictionary[key];
       if (typeof translation === "string") {
-        element.textContent = translation;
+        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+          element.placeholder = translation;
+        } else {
+          element.textContent = translation;
+        }
       }
     });
     formatStudyDescriptions();
@@ -500,6 +504,57 @@ function initPage() {
     update();
   };
 
+  const setupApplicationRedirects = () => {
+    const redirectToContact = () => {
+      window.location.href = "/pages/Eleqa.html";
+    };
+
+    // Hero CTA
+    document.querySelector(".hero-cta")?.addEventListener("click", redirectToContact);
+    document.querySelector(".cta-button")?.addEventListener("click", redirectToContact);
+
+    // Tech / Academy Cards
+    document.addEventListener("click", (e) => {
+      if (e.target.closest(".tech-apply")) {
+        redirectToContact();
+      }
+    });
+
+    // Study Cards
+    document.addEventListener("click", (e) => {
+      if (e.target.closest(".study-card-apply")) {
+        redirectToContact();
+      }
+    });
+
+    // Visa Cards
+    document.querySelectorAll(".visa-support-card").forEach(card => {
+      card.addEventListener("click", redirectToContact);
+      card.style.cursor = "pointer";
+    });
+
+    // Service Cards
+    document.querySelectorAll(".service-card").forEach(card => {
+      card.addEventListener("click", redirectToContact);
+      card.style.cursor = "pointer";
+    });
+
+    // Scholarship Banner CTA
+    document.addEventListener("click", (e) => {
+      if (e.target.closest(".scholarship-banner-cta")) {
+        redirectToContact();
+      }
+    });
+
+    // Scholarship Buttons
+    document.addEventListener("click", (e) => {
+      if (e.target.closest(".scholarship-button")) {
+        e.preventDefault();
+        redirectToContact();
+      }
+    });
+  };
+
   languageButtons.forEach((btn) => {
     const flagImg = btn.querySelector(".dropdown-flag-icon");
     const baseFlag = btn.dataset.flag;
@@ -521,6 +576,7 @@ function initPage() {
   setupTechTabs();
   setupFaq();
   setupTestimonials();
+  setupApplicationRedirects();
 
   toggle?.addEventListener("click", toggleMenu);
   menu?.addEventListener("click", (event) => event.stopPropagation());
