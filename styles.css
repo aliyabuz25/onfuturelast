@@ -2313,37 +2313,7 @@ body>div[id$="-container"]:not(#hero-container) {
     }
 }
 
-@media (max-width: 1200px) {
-    body {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
 
-    .hero,
-    #hero {
-        width: calc(100% + 80px);
-        margin-left: -40px;
-        margin-right: -40px;
-    }
-
-    .hero-nav {
-        padding: 44px 40px;
-    }
-
-    .results-section,
-    .services-section,
-    .study-section,
-    .visa-section,
-    .tech-courses,
-    .faq-section {
-        padding: 44px 40px;
-    }
-
-    .study-cards,
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
 @media (max-width: 991px) {
     body {
@@ -2708,17 +2678,66 @@ body>div[id$="-container"]:not(#hero-container) {
     .results-section,
     .services-section,
     .services-grid,
-    /* Added this */
     .study-section,
     .visa-section,
     .tech-courses,
-    .faq-section,
-    .scholarship {
+    .faq-section {
         padding: 40px 16px !important;
         margin-top: 40px !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         width: 100% !important;
+    }
+
+    .scholarship-banner {
+        width: calc(100% + 40px) !important;
+        margin-left: -20px !important;
+        margin-right: -20px !important;
+        padding: 40px 16px;
+    }
+
+    .scholarship-banner-inner {
+        flex-direction: column;
+        padding: 0;
+        gap: 24px;
+    }
+
+    .scholarship-title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .results-heading-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .results-copy {
+        text-align: center;
+    }
+
+    .services-title-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .visa-section {
+        padding: 40px 16px !important;
+    }
+
+    .visa-container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .study-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
     }
 
     .hero-actions {
@@ -2727,6 +2746,44 @@ body>div[id$="-container"]:not(#hero-container) {
     }
 
     .hero-cta {
+        margin: 0 auto;
+    }
+
+    .service-card {
+        align-items: center;
+        text-align: center;
+    }
+
+    .service-card h3 {
+        padding-right: 0;
+        margin-top: 40px;
+    }
+
+    .study-card {
+        align-items: center;
+        text-align: center;
+    }
+
+    .study-card-body {
+        align-items: center;
+        width: 100%;
+    }
+
+    .study-card-meta {
+        width: 100%;
+        align-items: center;
+    }
+
+    .study-card-meta span {
+        justify-content: center;
+    }
+
+    .study-card-footer {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .study-card-apply {
         margin: 0 auto;
     }
 }
