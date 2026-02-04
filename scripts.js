@@ -14,6 +14,7 @@ const SECTION_TARGETS = [
   { id: "scholarship-container", path: "/sections/scholarship.html" },
   { id: "faq-container", path: "/sections/faq.html" },
   { id: "footer-container", path: "/sections/footer.html" },
+  { id: "mobile-menu-container", path: "/sections/mobile-menu.html" },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -805,8 +806,16 @@ function initPage() {
 
 function setActiveNavByPath(navLinks) {
   if (!navLinks || !navLinks.length) return;
-  navLinks.forEach((link) => link.classList.remove("active"));
   const path = decodeURIComponent(window.location.pathname);
+
+  // Update Desktop Nav
+  navLinks.forEach((link) => link.classList.remove("active"));
+
+  // Update Mobile Nav
+  const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+  const mobileLinks = mobileOverlay ? mobileOverlay.querySelectorAll('.mobile-nav-link') : [];
+  mobileLinks.forEach(link => link.classList.remove('active'));
+
   let targetIndex = 0;
   if (path.includes("/pages/Təhsil.html")) {
     targetIndex = 1;
@@ -815,7 +824,9 @@ function setActiveNavByPath(navLinks) {
   } else if (path.includes("/pages/Eleqa.html")) {
     targetIndex = 3;
   }
+
   navLinks[targetIndex]?.classList.add("active");
+  mobileLinks[targetIndex]?.classList.add("active");
 }
 
 /* --- Mobile Menu Logic --- */
