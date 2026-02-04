@@ -60,6 +60,9 @@ body>div[id$="-container"]:not(#hero-container) {
     position: absolute;
     bottom: -1000px !important;
     left: 50%;
+    top: 96% !important;
+    width: 1330px !important;
+    height: 1354.532px;
     transform: translateX(-50%);
     background-image: url("Navbar/Frame 1984079580.png");
     background-position: center;
@@ -67,19 +70,6 @@ body>div[id$="-container"]:not(#hero-container) {
     background-repeat: no-repeat;
     opacity: 1;
     background-color: transparent;
-}
-
-.ellipse-1 {
-    top: 96% !important;
-    width: 1330px !important;
-    height: 1354px;
-}
-
-.ellipse-2 {
-    top: 92% !important;
-    width: 1550px !important;
-    height: 1570px;
-    opacity: 0.6;
 }
 
 .globe-wrap {
@@ -463,9 +453,9 @@ body>div[id$="-container"]:not(#hero-container) {
     display: inline-flex;
     padding: 4px;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     border-radius: 24px;
-    border: 0.5px solid #C1BFF3;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
     background: rgba(20, 19, 45, 0.6);
     backdrop-filter: blur(4px);
 }
@@ -483,6 +473,9 @@ body>div[id$="-container"]:not(#hero-container) {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    min-width: 55px;
+    min-height: 28px;
+    box-sizing: border-box;
 }
 
 .hero-badge-text {
@@ -733,9 +726,10 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .hero-cta {
     display: flex;
-    width: 130px;
-    height: 48px;
-    padding: 0;
+    width: auto;
+    min-width: 154px;
+    height: 52px;
+    padding: 0 24px;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -744,9 +738,10 @@ body>div[id$="-container"]:not(#hero-container) {
     color: var(--Neutral-Color-1000, #0A0A0A);
     text-align: center;
     font-family: var(--Font-Family-Button, Poppins);
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
+    /* Slightly bolder for clarity */
     line-height: 1;
     margin: 0 auto;
     border: none;
