@@ -201,9 +201,7 @@ body>div[id$="-container"]:not(#hero-container) {
     color: #c8c8c8 !important;
 }
 
-/*/* .
-         active #F5F5FC
-        } */
+/* active #F5F5FC */
 .navbar-nav .nav-link.active {
     color: #f5f5fc !important;
 }
@@ -2549,7 +2547,7 @@ body>div[id$="-container"]:not(#hero-container) {
         overflow-y: auto;
     }
 
-    /* Disable Bootstrap's collapsing animation to prevent lag */
+    /* Disable Bootstrap collapsing animation to prevent lag */
     .hero-nav .navbar-collapse.collapsing {
         transition: none !important;
         display: block !important;
