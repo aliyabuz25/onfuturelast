@@ -125,14 +125,14 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .hero-content {
     position: absolute;
-    top: clamp(120px, 16vw, 200px);
+    top: clamp(220px, 22vw, 240px);
     left: 50%;
     transform: translateX(-50%);
     width: min(1000px, 95%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 16px;
     z-index: 5;
 }
 
@@ -164,7 +164,8 @@ body>div[id$="-container"]:not(#hero-container) {
     gap: 12px;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 24px;
+    margin-top: 48px;
+    /* Increased gap before button as seen in image */
 }
 
 .navbar-nav {
@@ -424,56 +425,63 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .hero-heading {
     font-family: var(--Font-Family-Headline, "DM Sans");
-    font-size: clamp(40px, 5vw, 72px);
+    font-size: clamp(32px, 5vw, 68px);
     font-weight: 500 !important;
-    line-height: 1.15;
+    line-height: 1.1;
     color: var(--Neutral-Color-50, #FFF);
     text-align: center;
-    max-width: 860px;
-    margin: 12px auto;
+    max-width: 900px;
+    margin: 16px auto 4px;
     width: 100%;
+    letter-spacing: -0.01em;
 }
 
 .hero-subtitle {
-    color: var(--Neutral-Color-100, #F7F6F6);
+    color: #F7F6F6;
+    opacity: 0.8;
     font-family: var(--Font-Family-Headline, "DM Sans");
-    font-size: var(--Font-Size-18, 18px);
+    font-size: clamp(14px, 1.1vw, 16px);
     font-style: normal;
     font-weight: 400;
-    line-height: var(--Line-Height-24, 24px);
+    line-height: 1.4;
     text-align: center;
-    align-self: stretch;
-    width: min(620px, 100%);
-    margin: 0 auto 4px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .hero-badge {
-    display: flex;
+    display: inline-flex;
     padding: 4px;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     border-radius: 24px;
-    border: 0.5px solid var(--Primary-Color-200, #C1BFF3);
-    background: var(--Primary-Color-1000, #14132D);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    background: rgba(20, 19, 45, 0.6);
+    backdrop-filter: blur(4px);
 }
 
-.hero-badge label {
-    color: var(--Neutral-Color-50, #FFF);
+.hero-badge-tag {
+    background: #42BB9C;
+    color: #FFF;
+    padding: 2px 10px;
+    border-radius: 20px;
     font-family: var(--Font-Family-Body, Poppins);
-    font-size: var(--Font-Size-14, 14px);
-    font-style: normal;
-    font-weight: 400;
-    line-height: var(--Line-Height-20, 20px);
+    font-size: 13px;
+    font-weight: 500;
 }
 
-.hero-badge .hero-badge-new {
-    color: var(--Neutral-Color-50, #FFF);
-    text-align: center;
-    font-family: var(--Font-Family-Button, Poppins);
-    font-size: var(--Font-Size-14, 14px);
-    font-style: normal;
+.hero-badge-text {
+    color: #FFF;
+    font-family: var(--Font-Family-Body, Poppins);
+    font-size: 13px;
     font-weight: 400;
-    line-height: var(--Line-Height-20, 20px);
+}
+
+.hero-badge-arrow {
+    width: 12px;
+    height: 10px;
+    margin-right: 8px;
+    opacity: 0.8;
 }
 
 .hero-grid {
@@ -710,25 +718,28 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .hero-cta {
     display: flex;
-    width: 130px;
-    height: 48px;
-    padding: 12px 8px 12px 16px;
+    width: auto;
+    min-width: 154px;
+    height: 52px;
+    padding: 0 24px;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
     border-radius: 100px;
     background: var(--Neutral-Color-50, #FFF);
     color: var(--Neutral-Color-1000, #0A0A0A);
     text-align: center;
     font-family: var(--Font-Family-Button, Poppins);
-    font-size: var(--Font-Size-14, 14px);
+    font-size: 16px;
     font-style: normal;
-    font-weight: 400;
-    line-height: var(--Line-Height-20, 20px);
-    margin: 28px auto 0;
+    font-weight: 500;
+    /* Slightly bolder for clarity */
+    line-height: 1;
+    margin: 0 auto;
     border: none;
     cursor: pointer;
     position: relative;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
 .hero-cta-text {
