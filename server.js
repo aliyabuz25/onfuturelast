@@ -56,7 +56,7 @@ const SECURITY_HEADERS = {
     "img-src 'self' data: https:",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
     "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
-    "font-src 'self' data: https://fonts.gstatic.com",
+    "font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net",
     "connect-src 'self' https://cdn.jsdelivr.net",
   ].join('; '),
   'X-XSS-Protection': '1; mode=block',
