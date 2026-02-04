@@ -1437,7 +1437,8 @@ body>div[id$="-container"]:not(#hero-container) {
     background: #ffffff;
     margin-top: 0;
     display: flex;
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
     padding: 44px 80px;
     flex-direction: column;
     align-items: flex-start;
@@ -2322,18 +2323,19 @@ body>div[id$="-container"]:not(#hero-container) {
     }
 
     .hero,
-    #hero {
-        width: calc(100% + 40px);
-        margin-left: -20px;
-        margin-right: -20px;
+    #hero,
+    .scholarship-banner,
+    .site-footer {
+        width: calc(100% + 40px) !important;
+        margin-left: -20px !important;
+        margin-right: -20px !important;
+        transform: none !important;
         min-height: auto;
-        padding-bottom: 60px;
     }
 
-    .scholarship-banner {
-        width: calc(100% + 40px);
-        margin-left: -20px;
-        margin-right: -20px;
+    .hero,
+    #hero {
+        padding-bottom: 60px;
     }
 
     .hero-nav {
@@ -2690,9 +2692,6 @@ body>div[id$="-container"]:not(#hero-container) {
     }
 
     .scholarship-banner {
-        width: calc(100% + 40px) !important;
-        margin-left: -20px !important;
-        margin-right: -20px !important;
         padding: 40px 16px;
     }
 
