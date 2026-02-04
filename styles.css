@@ -923,7 +923,7 @@ body>div[id$="-container"]:not(#hero-container) {
     margin: 0;
     width: 100%;
     max-width: 516px;
-    text-align: right;
+    text-align: left;
     justify-self: end;
 }
 
