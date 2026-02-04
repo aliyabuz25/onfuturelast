@@ -800,6 +800,7 @@ function initPage() {
   });
   setupPhoneDropdown();
   setActiveNavByPath(navLinks);
+  setupMobileMenu();
 }
 
 function setActiveNavByPath(navLinks) {
@@ -815,4 +816,32 @@ function setActiveNavByPath(navLinks) {
     targetIndex = 3;
   }
   navLinks[targetIndex]?.classList.add("active");
+}
+
+/* --- Mobile Menu Logic --- */
+function setupMobileMenu() {
+  const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+  const customToggler = document.querySelector('.custom-toggler');
+  const closeBtn = document.querySelector('.mobile-menu-close');
+
+  if (mobileMenuOverlay && customToggler && closeBtn) {
+    customToggler.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileMenuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    closeBtn.addEventListener('click', () => {
+      mobileMenuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Close on link click
+    mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 }
