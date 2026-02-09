@@ -543,8 +543,14 @@ body>div[id$="-container"]:not(#hero-container) {
 @media (min-width: 992px) {
     .hero-nav {
         margin: 44px 0 0 !important;
-        padding: 0 80px !important;
+        padding: 0 40px !important;
         background: transparent !important;
+    }
+
+    @media (min-width: 1440px) {
+        .hero-nav {
+            padding: 0 80px !important;
+        }
     }
 
     .hero-nav .container-fluid {
@@ -2512,7 +2518,7 @@ body>div[id$="-container"]:not(#hero-container) {
     }
 
     .hero-nav {
-        padding: 20px 16px;
+        padding: 20px 16px !important;
         /* Tighter padding for mobile */
         margin: 0 auto 20px;
         width: 100%;
