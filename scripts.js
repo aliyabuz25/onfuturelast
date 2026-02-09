@@ -103,7 +103,7 @@ function initPage() {
         }
         // Handle Text
         else {
-          el.innerText = value;
+          el.innerHTML = value;
         }
       });
 
