@@ -1,6 +1,6 @@
 services:
   onfuture-web:
-    image: onfuture-web:latest
+    image: ghcr.io/aliyabuz25/onfuturelast:latest
     restart: unless-stopped
     environment:
       PORT: "6985"
