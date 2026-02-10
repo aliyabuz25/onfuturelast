@@ -707,12 +707,12 @@ function initPage(scope = document) {
     };
 
     tabs.forEach((tab) => {
-      // Remove existing listener if any to avoid duplicates
-      const newTab = tab.cloneNode(true);
-      tab.parentNode.replaceChild(newTab, tab);
+      // Use direct listener and check for a marker to prevent double-binding
+      if (tab.dataset.initialized) return;
+      tab.dataset.initialized = "true";
 
-      newTab.addEventListener("click", () => {
-        activateDegree(newTab.dataset.degree || "");
+      tab.addEventListener("click", () => {
+        activateDegree(tab.dataset.degree || "");
       });
     });
 
