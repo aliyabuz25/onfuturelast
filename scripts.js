@@ -724,23 +724,30 @@ function initPage(scope = document) {
   };
 
   const setupTechTabs = () => {
-    if (!techTabs.length || !techGrids.length) return;
+    const tabs = scope.querySelectorAll(".tech-tab");
+    const grids = scope.querySelectorAll(".tech-grid");
+
+    if (!tabs.length || !grids.length) return;
 
     const activateTab = (tabName) => {
-      techTabs.forEach((tab) => {
+      tabs.forEach((tab) => {
         tab.classList.toggle("active", tab.dataset.tab === tabName);
       });
-      techGrids.forEach((grid) => {
+      grids.forEach((grid) => {
         grid.classList.toggle("active", grid.dataset.tab === tabName);
       });
     };
 
-    techTabs.forEach((tab) => {
+    tabs.forEach((tab) => {
+      if (tab.dataset.initialized) return;
+      tab.dataset.initialized = "true";
+
       tab.addEventListener("click", () => activateTab(tab.dataset.tab || ""));
     });
 
-    const initial = document.querySelector(".tech-tab.active")?.dataset.tab || techTabs[0]?.dataset.tab;
-    if (initial) activateTab(initial);
+    const activeTab = scope.querySelector(".tech-tab.active");
+    if (activeTab) activateTab(activeTab.dataset.tab || "");
+    else if (tabs[0]) activateTab(tabs[0].dataset.tab || "");
   };
 
   const setupFaq = () => {
