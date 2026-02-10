@@ -426,7 +426,7 @@ body>div[id$="-container"]:not(#hero-container) {
 }
 
 .dropdown+.cta-button {
-    margin-left: 12px !important;
+    margin-left: 0 !important;
 }
 
 .dropdown-item {
@@ -544,7 +544,7 @@ body>div[id$="-container"]:not(#hero-container) {
     margin-left: 0;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
 .hero-nav .navbar-nav {
