@@ -696,20 +696,22 @@ function initPage(scope = document) {
     if (!tabs.length) return;
 
     const activateDegree = (degree) => {
-      // Always re-query cards to handle dynamic content replacements
+      // Re-query current cards to ensure we're targeting the right DOM elements
       const currentCards = scope.querySelectorAll(".study-card");
 
       tabs.forEach((tab) => {
         tab.classList.toggle("active", tab.dataset.degree === degree);
       });
       currentCards.forEach((card) => {
-        const match = card.dataset.degree === degree;
-        card.classList.toggle("hidden", !match);
+        const cardDegree = card.dataset.degree || "";
+        // Support partial matches (e.g., 'bachelor' matching 'bachelor degree') or exact
+        const isMatch = cardDegree.toLowerCase().includes(degree.toLowerCase());
+        card.style.display = isMatch ? "flex" : "none";
+        card.classList.toggle("hidden", !isMatch);
       });
     };
 
     tabs.forEach((tab) => {
-      // Use direct listener and check for a marker to prevent double-binding
       if (tab.dataset.initialized) return;
       tab.dataset.initialized = "true";
 
@@ -718,9 +720,9 @@ function initPage(scope = document) {
       });
     });
 
-    const activeTab = scope.querySelector(".study-tab.active");
+    // Find first active tab or default to first tab
+    const activeTab = scope.querySelector(".study-tab.active") || tabs[0];
     if (activeTab) activateDegree(activeTab.dataset.degree || "");
-    else if (tabs[0]) activateDegree(tabs[0].dataset.degree || "");
   };
 
   const setupTechTabs = () => {
