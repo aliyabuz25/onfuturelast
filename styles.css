@@ -1589,7 +1589,7 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 411px);
+    grid-template-columns: repeat(3, 411px);
     gap: 24px;
     justify-content: center;
     justify-items: center;
