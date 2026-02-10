@@ -1,23 +1,29 @@
 services:
-  onfuture-app:
+  onfuture-web:
     build: .
-    image: ghcr.io/aliyabuz25/onfuturelast:latest
+    image: onfuture-web:latest
     restart: unless-stopped
     environment:
       PORT: "6985"
       HOST: "0.0.0.0"
     volumes:
-      - /datastore/onfuture-web/logs.json:/app/logs.json
       - /datastore/onfuture-web/data:/app/data
       - /datastore/onfuture-web/uploads:/app/assets/uploads
+      - /datastore/onfuture-web/logs.json:/app/logs.json
     networks:
       - edge
     labels:
       - 'traefik.enable=true'
       - 'traefik.docker.network=edge'
-      - 'traefik.http.routers.onfuture-app.rule=(Host(`onfuture.az`) || Host(`www.onfuture.az`) || Host(`onfuture-w2.octotech.az`))'
-      - 'traefik.http.routers.onfuture-app.entrypoints=web'
-      - 'traefik.http.services.onfuture-app.loadbalancer.server.port=6985'
+      # API & Media Router
+      - 'traefik.http.routers.onfuture-api.rule=(Host(`onfuture.az`) || Host(`www.onfuture.az`)) && (PathPrefix(`/api`) || PathPrefix(`/assets/uploads`) || PathPrefix(`/cdn`))'
+      - 'traefik.http.routers.onfuture-api.entrypoints=web'
+      - 'traefik.http.routers.onfuture-api.priority=100'
+      - 'traefik.http.services.onfuture-web.loadbalancer.server.port=6985'
+      # Main Frontend Router
+      - 'traefik.http.routers.onfuture.rule=Host(`onfuture.az`) || Host(`www.onfuture.az`)'
+      - 'traefik.http.routers.onfuture.entrypoints=web'
+      - 'traefik.http.services.onfuture-web.loadbalancer.server.port=6985'
 
 networks:
   edge:
