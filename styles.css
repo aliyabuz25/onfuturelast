@@ -635,7 +635,7 @@ body>div[id$="-container"]:not(#hero-container) {
     .hero-nav-actions {
         display: flex !important;
         align-items: center !important;
-        gap: 12px !important;
+        gap: 8px !important;
         margin-left: 87px !important;
         flex-shrink: 0 !important;
     }
