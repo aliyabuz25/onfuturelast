@@ -73,10 +73,6 @@
   const padSelectors = [
     '.services-grid',
     '.visa-section',
-    '.tech-courses',
-    '.study-section',
-    '.results',
-    '.faq-section',
     '.scholarship',
     '.footer-inner',
     '.hero-content',
