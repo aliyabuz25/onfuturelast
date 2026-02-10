@@ -79,7 +79,7 @@
     '.faq-section',
     '.scholarship',
     '.footer-inner',
-    '.hero',
+    '.hero-content',
   ].join(', ');
 
   function ensurePadStyle() {
