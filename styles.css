@@ -155,7 +155,7 @@ body>div[id$="-container"]:not(#hero-container) {
     position: absolute;
     top: clamp(200px, 20vw, 220px);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% + 0.25px));
     width: min(1000px, 95%);
     display: flex;
     flex-direction: column;
