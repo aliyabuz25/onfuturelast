@@ -514,7 +514,8 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .hero-nav {
     display: flex;
-    width: 1440px;
+    max-width: 1440px;
+    width: 100%;
     padding: 44px 80px;
     align-items: flex-start;
     gap: 87px;
@@ -544,7 +545,7 @@ body>div[id$="-container"]:not(#hero-container) {
     margin-left: 87px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 }
 
 .hero-nav .navbar-nav {
