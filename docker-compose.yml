@@ -1,6 +1,5 @@
 services:
   onfuture-web:
-    build: .
     image: onfuture-web:latest
     restart: unless-stopped
     environment:
