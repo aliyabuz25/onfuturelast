@@ -187,7 +187,7 @@ function initPage(scope = document) {
   // -- Universal AI Management Blueprint: Content Binding --
   const bindDynamicContent = async () => {
     try {
-      const res = await fetch(getAssetPath('/data/content3.json'));
+      const res = await fetch(getAssetPath('/data/content4.json'));
       if (!res.ok) return;
       const content = await res.json();
 
@@ -250,13 +250,17 @@ function initPage(scope = document) {
     if (keys.length === 0) return;
 
     container.innerHTML = keys.map(idx => `
-      <article class="service-card">
+      <article class="service-card" 
+               onclick="window.location.href='${services[idx].link || '#'}'" 
+               style="cursor: pointer;">
           <h3>
               <span class="service-num">${idx.padStart(2, '0')}.</span>
               <span>${services[idx].title || ''}</span>
           </h3>
           <p>${services[idx].desc || ''}</p>
-          <div class="service-card-icon"><img src="${services[idx].icon || '/services/Arrow up-right.png'}" alt=""></div>
+          <div class="service-card-icon" style="cursor: pointer;">
+            <img src="${services[idx].icon || '/services/Arrow up-right.png'}" alt="">
+          </div>
       </article>
     `).join('');
   }
@@ -869,11 +873,6 @@ function initPage(scope = document) {
       card.style.cursor = "pointer";
     });
 
-    // Service Cards
-    scope.querySelectorAll(".service-card").forEach(card => {
-      card.addEventListener("click", redirectToContact);
-      card.style.cursor = "pointer";
-    });
 
     // Scholarship Banner CTA
     scope.addEventListener("click", (e) => {
