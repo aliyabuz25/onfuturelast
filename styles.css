@@ -3319,3 +3319,102 @@ body>div[id$="-container"]:not(#hero-container) {
     line-height: normal !important;
     color: var(--Neutral-Color-1100, #000);
 }
+
+/* Scholarship Card Override */
+.scholarship-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 628px));
+    gap: 32px;
+    justify-content: center;
+}
+
+.scholarship-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+    border: 1px solid #e2e8f0;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 628px !important;
+    min-height: 488px !important;
+    box-sizing: border-box;
+}
+
+.scholarship-card h3 {
+    font-size: 24px !important;
+    /* Updated to 24px */
+    line-height: 32px !important;
+    /* Added 32px line-height */
+    font-weight: 500 !important;
+    margin: 0 0 12px !important;
+    font-family: var(--Font-Family-Headline, 'DM Sans') !important;
+    color: #000 !important;
+}
+
+.scholarship-card p {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    color: #6b7280;
+    line-height: 20px !important;
+    margin: 12px 0 20px !important;
+    /* Updated top to 12px, bottom 20px */
+    flex-grow: 1;
+}
+
+.scholarship-benefit-header {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 24px !important;
+    margin-bottom: 20px !important;
+}
+
+.scholarship-list {
+    margin: 0 0 32px !important;
+    padding: 0;
+    list-style: none;
+}
+
+.scholarship-list li {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    color: #262626 !important;
+    /* Neutral-800 */
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.scholarship-check {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 12px !important;
+    font-size: 10px !important;
+    /* Adjusted for smaller size */
+    border-radius: 50%;
+    background: #6560E0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+
+@media (max-width: 991px) {
+    .scholarship-grid {
+        grid-template-columns: 1fr;
+        max-width: 628px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .scholarship-card {
+        padding: 24px !important;
+        width: 100% !important;
+        min-height: auto !important;
+    }
+}
