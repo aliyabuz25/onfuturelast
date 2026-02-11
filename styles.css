@@ -599,7 +599,7 @@ body>div[id$="-container"]:not(#hero-container) {
     }
 
     .hero-nav .nav-link {
-        color: rgba(255, 255, 255, 0.85) !important;
+        color: #A3A3A3 !important;
         padding: 12px !important;
         /* 12px padding on all sides as requested */
         text-align: center !important;
@@ -619,7 +619,7 @@ body>div[id$="-container"]:not(#hero-container) {
     }
 
     .hero-nav .nav-link.active {
-        color: #fff !important;
+        color: #F5F5FC !important;
         background: transparent !important;
         font-weight: 400 !important;
     }
@@ -3301,4 +3301,17 @@ body>div[id$="-container"]:not(#hero-container) {
     .desktop-menu {
         display: none !important;
     }
+}
+
+/* --- Unified Section Titles --- */
+.services-title,
+.study-title,
+.visa-title,
+.tech-title,
+.testimonials__title {
+    font-family: var(--Font-Family-Headline, "DM Sans") !important;
+    font-size: 48px !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    color: var(--Neutral-Color-1100, #000);
 }
