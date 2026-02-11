@@ -192,7 +192,10 @@ function initPage(scope = document) {
       const content = await res.json();
 
       // 1. Dynamic Section Rendering (Full CMS control)
-      renderDynamicServices(content);
+      const linksRes = await fetch(getAssetPath(`/data/links.json?v=${Date.now()}`));
+      const links = linksRes.ok ? await linksRes.json() : {};
+
+      renderDynamicServices(content, links);
       renderDynamicStudy(content);
       // You can add more like renderDynamicFaq(content), etc.
 
@@ -229,7 +232,7 @@ function initPage(scope = document) {
     }
   };
 
-  function renderDynamicServices(content) {
+  function renderDynamicServices(content, links = {}) {
     const container = scope.querySelector('.services-grid-inner');
     if (!container) return;
 
@@ -249,9 +252,13 @@ function initPage(scope = document) {
     const keys = Object.keys(services).sort((a, b) => a - b);
     if (keys.length === 0) return;
 
-    container.innerHTML = keys.map(idx => `
+    container.innerHTML = keys.map(idx => {
+      const cardKey = `card${idx}`;
+      const href = (links.services && links.services[cardKey]) || services[idx].link || '#';
+
+      return `
       <article class="service-card" 
-               onclick="window.location.href='${services[idx].link || '#'}'" 
+               onclick="window.location.href='${href}'" 
                style="cursor: pointer;">
           <h3>
               <span class="service-num">${idx.padStart(2, '0')}.</span>
@@ -262,7 +269,8 @@ function initPage(scope = document) {
             <img src="${services[idx].icon || '/services/Arrow up-right.png'}" alt="">
           </div>
       </article>
-    `).join('');
+    `;
+    }).join('');
   }
 
   function renderDynamicStudy(content) {

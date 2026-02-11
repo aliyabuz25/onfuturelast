@@ -1,0 +1,9 @@
+{
+    "services": {
+        "card1": "/pages/Təhsil.html",
+        "card2": "/pages/Akademiya.html",
+        "card3": "/pages/Təhsil.html",
+        "card4": "/pages/Akademiya.html"
+    },
+    "contact": "/pages/Eleqa.html"
+}
