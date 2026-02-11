@@ -1068,7 +1068,6 @@ body>div[id$="-container"]:not(#hero-container) {
     border-bottom: 1px solid #dddddd;
     margin: 0 auto;
     width: 100%;
-    max-width: calc(100% - 160px);
 }
 
 .study-tab {
