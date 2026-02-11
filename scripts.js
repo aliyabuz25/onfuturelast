@@ -880,23 +880,25 @@ function initPage(scope = document) {
       }
     });
 
-    // Service Cards (Centralized handling from links.json)
+    // Service Cards (Centralized handling from links.json) - Triggered ONLY on the icon
     scope.addEventListener("click", (e) => {
-      const card = e.target.closest(".service-card");
-      if (card) {
-        const serviceId = card.dataset.serviceId;
+      const icon = e.target.closest(".service-card-icon");
+      if (icon) {
+        const card = icon.closest(".service-card");
+        const serviceId = card?.dataset.serviceId;
         if (serviceId && links.services && links.services[serviceId]) {
           window.location.href = links.services[serviceId];
         } else {
-          // Fallback or default
           redirectToContact();
         }
       }
     });
 
-    // Cursor Styling for Service Cards
+    // Cursor Styling: Pointer only on the icon
     scope.querySelectorAll(".service-card").forEach(card => {
-      card.style.cursor = "pointer";
+      card.style.cursor = "default";
+      const icon = card.querySelector(".service-card-icon");
+      if (icon) icon.style.cursor = "pointer";
     });
 
     // Scholarship Banner CTA
