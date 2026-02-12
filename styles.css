@@ -35,38 +35,7 @@ body {
 
 
 
-/* Fadeout margin effect for very wide screens */
-body::before,
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: calc((100vw - 1440px) / 2);
-    z-index: 9999;
-    pointer-events: none;
-    display: block;
-}
 
-@media (min-width: 1441px) {
-    body::before {
-        left: 0;
-        background: linear-gradient(to right, rgba(20, 19, 45, 0.3), transparent);
-    }
-
-    body::after {
-        right: 0;
-        background: linear-gradient(to left, rgba(20, 19, 45, 0.3), transparent);
-    }
-}
-
-@media (max-width: 1440px) {
-
-    body::before,
-    body::after {
-        display: none;
-    }
-}
 
 
 input::selection,
