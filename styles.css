@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@400;500;600;700&display=swap');
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 :root {
     --Font-Family-Headline: 'DM Sans', sans-serif;
     --Font-Family-Body: 'Poppins', sans-serif;
@@ -32,8 +26,8 @@ body {
     background: #FFF;
     max-width: 1440px;
     margin: 0 auto !important;
-    padding-left: clamp(16px, 4vw, 80px);
-    padding-right: clamp(16px, 4vw, 80px);
+    padding-left: clamp(20px, 5vw, 80px);
+    padding-right: clamp(20px, 5vw, 80px);
     position: relative;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
 }
