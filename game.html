@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Micro City - Top-down Action</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <div class="game-shell">
+    <header>
+      <div class="stat-group">
+        <span class="label">Health</span>
+        <span id="health-value">100%</span>
+      </div>
+      <div class="stat-group">
+        <span class="label">Mission</span>
+        <span id="mission-value">Secure 3 checkpoints</span>
+      </div>
+      <div class="stat-group">
+        <span class="label">Time</span>
+        <span id="time-value">00:00</span>
+      </div>
+    </header>
+
+    <section class="play-area">
+      <canvas id="gameCanvas" width="960" height="640" aria-label="Topdown city playfield"></canvas>
+      <aside class="sidebar">
+        <h2>Controls</h2>
+        <ul>
+          <li><strong>WASD / arrows</strong>: Drive</li>
+          <li><strong>Space</strong>: Boost (short burst)</li>
+          <li><strong>Enter</strong>: Restart mission</li>
+        </ul>
+        <h2>Objective</h2>
+        <p>Hit each green checkpoint while avoiding blockades and on-foot patrols. Reach all 3 to finish.</p>
+      </aside>
+    </section>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

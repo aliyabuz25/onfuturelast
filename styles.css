@@ -32,7 +32,10 @@ body {
     min-height: 100vh;
 }
 
-/* Blurred margin effect for very wide screens */
+
+
+
+/* Fadeout margin effect for very wide screens */
 body::before,
 body::after {
     content: "";
@@ -41,8 +44,6 @@ body::after {
     bottom: 0;
     width: calc((100vw - 1440px) / 2);
     z-index: 9999;
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
     pointer-events: none;
     display: block;
 }
@@ -50,12 +51,12 @@ body::after {
 @media (min-width: 1441px) {
     body::before {
         left: 0;
-        background: linear-gradient(to right, rgba(20, 19, 45, 0.2), transparent);
+        background: linear-gradient(to right, rgba(20, 19, 45, 0.3), transparent);
     }
 
     body::after {
         right: 0;
-        background: linear-gradient(to left, rgba(20, 19, 45, 0.2), transparent);
+        background: linear-gradient(to left, rgba(20, 19, 45, 0.3), transparent);
     }
 }
 
@@ -1072,7 +1073,7 @@ body>div[id$="-container"]:not(#hero-container) {
 }
 
 .study-header {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -1123,7 +1124,7 @@ body>div[id$="-container"]:not(#hero-container) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     border-bottom: 1px solid #dddddd;
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
 }
 
 .study-tab {
