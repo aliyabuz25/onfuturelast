@@ -49,13 +49,37 @@ function initApp(scope = document) {
 
 function initBarba() {
   barba.init({
-    sync: true,
+    sync: false,
     transitions: [{
+      async leave(data) {
+        const done = this.async();
+        gsap.to(data.current.container, {
+          opacity: 0,
+          y: -20,
+          duration: 0.4,
+          ease: "power2.inOut",
+          onComplete: done
+        });
+      },
       async enter(data) {
         initApp(data.next.container);
+        gsap.from(data.next.container, {
+          opacity: 0,
+          y: 20,
+          duration: 0.4,
+          ease: "power2.out",
+          clearProps: "all"
+        });
       },
       async once(data) {
         initApp(data.next.container);
+        gsap.from(data.next.container, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "power2.out",
+          clearProps: "all"
+        });
       }
     }]
   });
