@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
     --Font-Family-Headline: 'DM Sans', sans-serif;
@@ -10,7 +10,11 @@
 html {
     background: #14132D;
     min-height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+
 
 html,
 body {
@@ -20,17 +24,49 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+    background: transparent;
 }
 
 body {
-    background: #FFF;
-    max-width: 1440px;
-    margin: 0 auto !important;
-    padding-left: clamp(20px, 5vw, 80px);
-    padding-right: clamp(20px, 5vw, 80px);
     position: relative;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
+    min-height: 100vh;
 }
+
+/* Blurred margin effect for very wide screens */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: calc((100vw - 1440px) / 2);
+    z-index: 9999;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    pointer-events: none;
+    display: block;
+}
+
+@media (min-width: 1441px) {
+    body::before {
+        left: 0;
+        background: linear-gradient(to right, rgba(20, 19, 45, 0.2), transparent);
+    }
+
+    body::after {
+        right: 0;
+        background: linear-gradient(to left, rgba(20, 19, 45, 0.2), transparent);
+    }
+}
+
+@media (max-width: 1440px) {
+
+    body::before,
+    body::after {
+        display: none;
+    }
+}
+
 
 input::selection,
 textarea::selection,
@@ -70,9 +106,9 @@ body>div[id$="-container"]:not(#hero-container) {
     background: linear-gradient(180deg, #14132D 0%, #191838 20%, #1E1D43 40%, #28265A 60%, #3D3A86 100%);
     color: white;
     padding: 0;
-    width: calc(100% + clamp(20px, 5vw, 80px) * 2);
-    margin-left: calc(-1 * clamp(20px, 5vw, 80px));
-    margin-right: calc(-1 * clamp(20px, 5vw, 80px));
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     height: 998px;
     /* Fixed height for desktop */
     min-height: 998px;
@@ -80,9 +116,9 @@ body>div[id$="-container"]:not(#hero-container) {
 }
 
 #hero {
-    width: calc(100% + clamp(20px, 5vw, 80px) * 2);
-    margin-left: calc(-1 * clamp(20px, 5vw, 80px));
-    margin-right: calc(-1 * clamp(20px, 5vw, 80px));
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     overflow: hidden;
 }
 
@@ -898,6 +934,10 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .results-inner {
     width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 80px);
+    padding-right: clamp(20px, 5vw, 80px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -958,7 +998,10 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .results-stats {
     width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 80px);
+    padding-right: clamp(20px, 5vw, 80px);
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1527,8 +1570,11 @@ body>div[id$="-container"]:not(#hero-container) {
 }
 
 .tech-inner {
-    max-width: none;
+    width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 80px);
+    padding-right: clamp(20px, 5vw, 80px);
     display: flex;
     flex-direction: column;
     gap: 44px;
@@ -1986,8 +2032,10 @@ body>div[id$="-container"]:not(#hero-container) {
 }
 
 .faq-container {
-    max-width: none;
+    max-width: 1440px;
     margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 80px);
+    padding-right: clamp(20px, 5vw, 80px);
     display: flex;
     gap: 80px;
     align-items: flex-start;
@@ -2157,9 +2205,9 @@ body>div[id$="-container"]:not(#hero-container) {
     background: #FFF;
     border-top: 1px solid #EEE;
     padding: 0;
-    width: calc(100% + clamp(20px, 5vw, 80px) * 2);
-    margin-left: calc(-1 * clamp(20px, 5vw, 80px));
-    margin-right: calc(-1 * clamp(20px, 5vw, 80px));
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #footer-container {
@@ -2365,6 +2413,10 @@ body>div[id$="-container"]:not(#hero-container) {
 
 .services-grid-inner {
     width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 80px);
+    padding-right: clamp(20px, 5vw, 80px);
     display: grid;
     grid-template-columns: repeat(4, minmax(302px, 1fr));
     gap: 24px;
