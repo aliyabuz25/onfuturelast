@@ -208,6 +208,7 @@ function initPage(scope = document) {
 
       console.log(`Universal Management: ${Object.keys(content).length} keys synced.`);
       setupStudyTabs(); // Re-initialize tabs after dynamic content is loaded
+      formatStudyDescriptions(); // Format descriptions after rendering
     } catch (e) {
       console.warn('Universal Management: Failed to sync content', e);
     }
