@@ -3408,7 +3408,7 @@ body>div[id$="-container"]:not(#hero-container) {
     line-height: 32px !important;
     /* Added 32px line-height */
     font-weight: 500 !important;
-    margin: 0 0 8px !important;
+    margin: 0 0 20px !important;
     font-family: var(--Font-Family-Headline, 'DM Sans') !important;
     color: #000 !important;
 }
