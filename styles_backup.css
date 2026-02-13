@@ -982,7 +982,7 @@ body>div[id$="-container"]:not(#hero-container) {
 .results-stat-label {
     width: 100%;
     padding-left: 24px;
-    color: var(--Neutral-Color-500, #737373);
+    color: #737373;
     font-size: var(--Font-Size-16, 16px);
     font-family: var(--Font-Family-Body, Poppins);
     font-style: normal;

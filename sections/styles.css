@@ -2156,7 +2156,7 @@ body>div[id$="-container"]:not(#hero-container) {
 .service-card p {
     margin: 0;
     padding: 10px;
-    color: var(--Neutral-Color-500, #737373);
+    color: #000000;
     font-family: var(--Font-Family-Body, Poppins);
     font-size: var(--Font-Size-16, 16px);
     font-style: normal;
@@ -2164,6 +2164,12 @@ body>div[id$="-container"]:not(#hero-container) {
     line-height: var(--Line-Height-24, 24px);
     padding-bottom: 12px;
     margin-bottom: 12px;
+    width: fill 234px !important;
+    height: fill 96px !important;
+    padding: 10px !important;
+    gap: 10px !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
 }
 
 .service-card-icon {
