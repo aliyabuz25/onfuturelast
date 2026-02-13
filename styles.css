@@ -1197,7 +1197,7 @@ body>div[id$="-container"]:not(#hero-container) {
 .study-card-desc-strong,
 .study-card-desc-sep {
     color: var(--Neutral-Color-1100, #0A0A0A);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .study-card-desc-detail {
